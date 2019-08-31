@@ -1,7 +1,7 @@
 package testWeb
 
 class NinoGenerator {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         //import org.apache.commons.lang3.RandomStringUtils;
 
 /**
