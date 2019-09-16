@@ -1,4 +1,4 @@
-package testWeb
+package groovyScripts
 
 class BankAccountGenerator {
     static void main(String[] args) {

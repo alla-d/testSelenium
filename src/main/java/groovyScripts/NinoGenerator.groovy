@@ -1,4 +1,4 @@
-package testWeb
+package groovyScripts
 
 class NinoGenerator {
     static void main(String[] args) {
