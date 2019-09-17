@@ -25,7 +25,7 @@ public class ElementState {
     @Test
     public void test() throws Exception {
         WebElement e1 = driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
-        System.out.println("E1 is Enabled? " + e1.isSelected());
+        System.out.println("E1 is Enabled? " + e1.isEnabled()); // isEnabled () return true or false
         e1.sendKeys("letskodeit");
     }
 

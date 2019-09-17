@@ -19,11 +19,11 @@ public class RadioButtonsAndCheckBoxes {
         baseUrl = "https://learn.letskodeit.com/p/practice";
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driver.get(baseUrl);
     }
 
     @Test
     public void radioAndCheckbox() throws Exception {
-        driver.get(baseUrl);
         WebElement benzRadio = driver.findElement(By.id("benzradio"));
         benzRadio.click(); // click on radiobutton, where type= 'radio'
         WebElement hondaRadio =driver.findElement(By.id("hondaradio"));
