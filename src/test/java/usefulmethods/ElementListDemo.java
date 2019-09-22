@@ -7,9 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class GenericMethodsDemo {
+public class ElementListDemo {
 
     private WebDriver driver;
     private String baseUrl;
@@ -29,9 +30,9 @@ public class GenericMethodsDemo {
 
     @Test
     public void testMethod() throws Exception {
-        WebElement element = gm.getElement("name", "id");
-        element.sendKeys("test");
-
+        List <WebElement> elementList = gm.getElementList("//input[@type='text']", "xpath");
+        int size =elementList.size();
+        System.out.println("Size of element list is: " + size);
     }
 
     @After
