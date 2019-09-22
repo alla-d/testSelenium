@@ -74,7 +74,7 @@ public class GenericMethods {
         if (elementList.isEmpty()){
             System.out.println("Element not found with " + type + ": " + locator);
         } else {
-            System.out.println("Elemnt foun with " + type + ": "+ locator);
+            System.out.println("Element found with " + type + ": "+ locator);
         }
         return elementList;
     }
