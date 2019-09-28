@@ -1,32 +1,34 @@
+package waittypes;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ElementState {
-    WebDriver driver;
-    String baseUrl;
+public class ImplicitWaitDemo {
+    private WebDriver driver;
+    private String baseUrl;
+
 
     @Before
     public void setUp() throws Exception {
         driver = new FirefoxDriver();
-        baseUrl = "https://www.google.com/";
+        baseUrl = "https://learn.letskodeit.com/p/practice";
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(baseUrl);
 
     }
 
     @Test
-    public void elementState() throws Exception {
-        WebElement e1 = driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
-        System.out.println("E1 is Enabled? " + e1.isEnabled()); // isEnabled () return true or false
-        e1.sendKeys("letskodeit");
+    public void testMethod() throws Exception {
+        driver.findElement(By.linkText("Login")).click();
+        driver.findElement(By.id("user_email")).sendKeys("test");
     }
 
     @After
@@ -34,6 +36,4 @@ public class ElementState {
         Thread.sleep(2000);
         driver.quit();
     }
-
-
 }
