@@ -31,7 +31,7 @@ public class WindowSize {
     }
 
     @Test
-    public void testJavaScripExecution() throws Exception {
+    public void testWindowSite() throws Exception {
         js.executeScript("window.location = 'https://letskodeit.teachable.com/pages/practice';");
 
         long height = (long) js.executeScript("return window.innerHeight") ;
