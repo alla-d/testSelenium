@@ -11,21 +11,23 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import usefulmethods.GenericMethods;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Javascriptexecution {
+public class ScrollingElementIntoView {
     private WebDriver driver;
     String baseUrl;
     private JavascriptExecutor js;
     private Wait wt;
+    private GenericMethods gm;
 
     @Before
     public void setUp() throws Exception {
         driver = new FirefoxDriver();
         baseUrl = "https://letskodeit.teachable.com/pages/practice";
         js = (JavascriptExecutor) driver;
+        gm = new GenericMethods(driver);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -34,15 +36,25 @@ public class Javascriptexecution {
 
     @Test
     public void testJavaScripExecution() throws Exception {
-        // Navigation
-        //driver.get(baseUrl);
+       // Navigation
         js.executeScript("window.location = 'https://letskodeit.teachable.com/pages/practice';");
-        // Find element
-        //WebElement textBox = driver.findElement(By.id("name"));
-        //textBox.sendKeys("test");
-        wt.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
-        js.executeScript("return document.getElementById('name').value='someValue';");
+       Thread.sleep(2000);
 
+        // Scroll Down
+        js.executeScript("window.scrollBy(0, 1900);");
+        Thread.sleep(2000);
+
+
+        // Scroll up
+        js.executeScript("window.scrollBy(0, -1900);");
+        Thread.sleep(2000);
+
+        // Scroll element into view
+        WebElement element = gm.getElement("mousehover", "id");
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+        // More scroll up
+        js.executeScript("window.scrollBy(0, -190);");
     }
 
     @After
